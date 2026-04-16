@@ -48,7 +48,7 @@ html {
     align-items: center;
     padding: 10px 40px;
     background: rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 100;
 }
 
 /* LEFT HEADER */
