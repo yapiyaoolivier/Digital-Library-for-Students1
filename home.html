@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IUGB Scholar Hub - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+
+<!-- ================= HEADER ================= -->
+<div class="header">
+
+    <div class="left">
+        <img src="logo.jpeg" class="logo-small">
+
+        <div>
+            <h2>IUGB Scholar Hub</h2>
+            <p>Digital Library</p>
+        </div>
+    </div>
+
+    <div class="right">
+
+        <div class="categories-top">
+            <button class="cat-btn" onclick="filterCategory('all')">All</button>
+            <button class="cat-btn" onclick="filterCategory('math')">Math</button>
+            <button class="cat-btn" onclick="filterCategory('chemistry')">Chemistry</button>
+            <button class="cat-btn" onclick="filterCategory('it')">Programming</button>
+        </div>
+
+        <input type="text" id="searchInput" class="search" placeholder="Search books...">
+
+    </div>
+</div>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="title">Welcome to your Library</h1>
+        <p class="subtitle">Search, read and download your books</p>
+    </section>
+
+    <!-- BOOKS -->
+    <section id="books" class="books-section">
+
+        <h2 class="section-title">Available Books</h2>
+
+        <div class="books">
+
+            <div class="book" data-category="math">
+                <h3>Math1</h3>
+                <p>Basic Mathematics Course</p>
+                <a href="math1.pdf" class="btn">Read</a>
+                <a href="math1.pdf" download class="btn">Download</a>
+            </div>
+
+            <div class="book" data-category="chemistry">
+                <h3>Chemistry1</h3>
+                <p>General Chemistry Basics</p>
+                <a href="chemistry1.pdf" class="btn">Read</a>
+                <a href="chemistry1.pdf" download class="btn">Download</a>
+            </div>
+
+            <div class="book" data-category="it">
+                <h3>Programming1</h3>
+                <p>Introduction to Programming</p>
+                <a href="programming1.pdf" class="btn">Read</a>
+                <a href="programming1.pdf" download class="btn">Download</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= IUGB INFO SECTION (BOTTOM) ================= -->
+    <section id="iugb" class="iugb-section">
+
+        <h2 class="section-title">IUGB Grand-Bassam</h2>
+
+        <p>
+            The International University of Grand-Bassam (IUGB) is a private higher education institution
+            located in Grand-Bassam, Côte d’Ivoire. It offers American-style education in Africa.
+        </p>
+
+        <div class="iugb-grid">
+
+            <div class="info-box">
+                <h3>📍 Location</h3>
+                <p>Grand-Bassam, Côte d’Ivoire</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🎓 Programs</h3>
+                <p>Engineering, Business, Computer Science, Social Sciences</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🌍 Vision</h3>
+                <p>Provide world-class education in West Africa</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+// SEARCH
+document.getElementById("searchInput").addEventListener("keyup", function () {
+    let value = this.value.toLowerCase();
+
+    document.querySelectorAll(".book").forEach(book => {
+        let title = book.querySelector("h3").innerText.toLowerCase();
+        book.style.display = title.includes(value) ? "block" : "none";
+    });
+});
+
+// FILTER
+function filterCategory(cat) {
+    document.querySelectorAll(".book").forEach(book => {
+        book.style.display =
+            (cat === "all" || book.dataset.category === cat)
+            ? "block"
+            : "none";
+    });
+}
+
+</script>
+
+</body>
+</html>
