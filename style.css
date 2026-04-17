@@ -68,10 +68,12 @@ html {
 /* ================= LOGO ================= */
 .logo {
     width: 40px;
+    height: auto;
+    display: block;
 }
 
 .logo-small {
-    width: 25px;
+    width: 55px;
 }
 
 /* ================= TITLES ================= */
